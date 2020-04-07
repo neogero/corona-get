@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import requests
 from bs4 import BeautifulSoup
 import re 
@@ -6,7 +8,8 @@ import datetime
 from database import database
 from database import country_numbers
 
-def textToInt(textString):
+
+def textToInt (textString):
     #quitamos los caracteres especiales
     textString =  re.sub('[^0-9]', '', textString)
 
@@ -17,9 +20,10 @@ def textToInt(textString):
 
     return output
 
+
 def main():
 
-    db_conn = database.create_connection('coronavirus.db')
+    db_conn = database.create_connection('/local-db/coronavirus.db')
 
     now = datetime.datetime.now()
     processTime = now.strftime("%m-%d-%Y %H:%M:%S")
@@ -73,6 +77,7 @@ def main():
             #print(countryData)
 
     database.close_connection(db_conn)
+
 
 if __name__ == '__main__':
     main()

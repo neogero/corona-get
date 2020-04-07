@@ -1,0 +1,7 @@
+version: "2.0" 
+
+services:   
+  covid:     
+    build: .     
+    volumes:       
+      - "./local-db:/local-db"

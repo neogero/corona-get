@@ -1,4 +1,4 @@
-FROM python:3.8.2-slim
+FROM python:3.7.1-slim
 
 MAINTAINER grodriguezra@gmail.com
 ENV TZ=Europe/Madrid
@@ -24,6 +24,7 @@ ADD crontab /etc/cron.d/cg-cron
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/cg-cron
+#RUN chmod 777 /etc/cron.d/cg-cron
 
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
